@@ -9,4 +9,8 @@ public partial class ProductView : ContentPage
 		InitializeComponent();
 		BindingContext = viewModel;
 	}
+    private async void OnAddProductClicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync(nameof(NewProductView));
+    }
 }
