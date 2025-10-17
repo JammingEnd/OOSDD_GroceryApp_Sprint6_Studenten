@@ -9,6 +9,8 @@ namespace Grocery.App.ViewModels
         private readonly IProductService _productService;
         public ObservableCollection<Product> Products { get; set; }
 
+        public bool IsVisible = true;
+
         public ProductViewModel(IProductService productService)
         {
             _productService = productService;

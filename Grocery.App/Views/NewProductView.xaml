@@ -1,11 +1,24 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Grocery.App.Views.NewProductView">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+             xmlns:vm="clr-namespace:Grocery.App.ViewModels"
+             x:Class="Grocery.App.Views.NewProductView"
+             x:DataType="vm:NewProductViewModel"
+             Title="Nieuw product toevoegen">
+
+    <VerticalStackLayout Padding="20" Spacing="15">
+        <Label Text="Naam van het product:" />
+        <Entry Text="{Binding Name}" Placeholder="Productnaam" />
+
+        <Label Text="Aantal:" />
+        <Entry Text="{Binding Amount}" Keyboard="Numeric" Placeholder="Aantal" />
+
+        <Label Text="THT datum:" />
+        <DatePicker Date="{Binding ShelfLife}" />
+
+        <Button Text="Product toevoegen"
+                Command="{Binding AddProductCommand}" />
+
+        <Label Text="{Binding Message}" TextColor="Red" IsVisible="{Binding IsMessageVisible}" />
     </VerticalStackLayout>
-</ContentView>
+</ContentPage>
